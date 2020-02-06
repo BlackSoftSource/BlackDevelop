@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>970</width>
+    <height>728</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>BlackDevelop</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="documentMode">
+       <bool>true</bool>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <property name="movable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>970</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuProject">
+    <property name="title">
+     <string>Project</string>
+    </property>
+    <widget class="QMenu" name="menuImport">
+     <property name="title">
+      <string>Import</string>
+     </property>
+     <addaction name="actionFrom_tgz"/>
+     <addaction name="actionFrom_GitHub"/>
+    </widget>
+    <addaction name="actionNew_2"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="separator"/>
+    <addaction name="menuImport"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionBlackDevelop_settings"/>
+    <addaction name="separator"/>
+    <addaction name="actionProject_settings"/>
+    <addaction name="separator"/>
+    <addaction name="actionModules"/>
+   </widget>
+   <widget class="QMenu" name="menuLaunch">
+    <property name="title">
+     <string>Launch</string>
+    </property>
+    <addaction name="actionRun_program"/>
+    <addaction name="separator"/>
+    <addaction name="actionBuild_and_run"/>
+    <addaction name="separator"/>
+    <addaction name="actionBuild"/>
+   </widget>
+   <widget class="QMenu" name="menuDistribution">
+    <property name="title">
+     <string>Distribution</string>
+    </property>
+    <addaction name="actionBuild_RPM_package"/>
+    <addaction name="actionUpload_to_packagecloud_io_and_build_RPM"/>
+    <addaction name="separator"/>
+    <addaction name="actionBuild_tar_gz_source"/>
+    <addaction name="actionGitHub"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout_BlackDevelop"/>
+    <addaction name="separator"/>
+    <addaction name="actionQbout_Qt5"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionDirectories"/>
+    <addaction name="actionLog"/>
+    <addaction name="actionErrors"/>
+    <addaction name="separator"/>
+    <addaction name="actionAll_files"/>
+   </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Files</string>
+    </property>
+    <widget class="QMenu" name="menuNew">
+     <property name="title">
+      <string>New</string>
+     </property>
+     <widget class="QMenu" name="menuGraphical_interface">
+      <property name="title">
+       <string>Graphical window</string>
+      </property>
+      <addaction name="actionMainWindow"/>
+      <addaction name="actionDialog"/>
+      <addaction name="actionWizard"/>
+     </widget>
+     <addaction name="actionSource_directory"/>
+     <addaction name="separator"/>
+     <addaction name="actionText_document"/>
+     <addaction name="actionBash_script"/>
+     <addaction name="separator"/>
+     <addaction name="actionPackage"/>
+     <addaction name="actionModule"/>
+     <addaction name="menuGraphical_interface"/>
+    </widget>
+    <addaction name="menuNew"/>
+    <addaction name="actionRename"/>
+    <addaction name="actionDelete"/>
+    <addaction name="separator"/>
+    <addaction name="actionImport"/>
+   </widget>
+   <addaction name="menuProject"/>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuLaunch"/>
+   <addaction name="menuDistribution"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="windowTitle">
+    <string>Files</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QTreeView" name="treeView">
+       <property name="dragEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="dragDropOverwriteMode">
+        <bool>true</bool>
+       </property>
+       <property name="dragDropMode">
+        <enum>QAbstractItemView::DropOnly</enum>
+       </property>
+       <property name="defaultDropAction">
+        <enum>Qt::TargetMoveAction</enum>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>false</bool>
+       </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="expandsOnDoubleClick">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_3">
+   <property name="windowTitle">
+    <string>Log</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QGridLayout" name="gridLayout_2"/>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_2">
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>BlackDevelop errors</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QGridLayout" name="gridLayout_4"/>
+   </widget>
+  </widget>
+  <action name="actionPython3">
+   <property name="text">
+    <string>Python3</string>
+   </property>
+  </action>
+  <action name="actionNew_2">
+   <property name="icon">
+    <iconset theme="document-new">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset theme="document-open">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset theme="application-exit">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::QuitRole</enum>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset theme="document-save">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="icon">
+    <iconset theme="document-save-as">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Save as ...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionBlackDevelop_settings">
+   <property name="icon">
+    <iconset theme="preferences-desktop">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>BlackDevelop settings ...</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="actionProject_settings">
+   <property name="icon">
+    <iconset theme="document-properties">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Project settings ...</string>
+   </property>
+  </action>
+  <action name="actionRun_program">
+   <property name="icon">
+    <iconset theme="media-playback-start">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Run</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionBuild_and_run">
+   <property name="text">
+    <string>Build and run</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+R</string>
+   </property>
+  </action>
+  <action name="actionBuild_RPM_package">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../../../../../../.designer/icons/x-rpm.png</normaloff>../../../../../../../../.designer/icons/x-rpm.png</iconset>
+   </property>
+   <property name="text">
+    <string>Build RPM package ...</string>
+   </property>
+  </action>
+  <action name="actionBuild_tar_gz_source">
+   <property name="icon">
+    <iconset theme="package-x-generic">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Export .tar.gz source ...</string>
+   </property>
+  </action>
+  <action name="actionUpload_to_packagecloud_io_and_build_RPM">
+   <property name="text">
+    <string>Upload to packagecloud.io and build RPM (auto-updating) ...</string>
+   </property>
+  </action>
+  <action name="actionFrom_tgz">
+   <property name="icon">
+    <iconset theme="package-x-generic">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>From .tgz ...</string>
+   </property>
+  </action>
+  <action name="actionFrom_GitHub">
+   <property name="text">
+    <string>From GitHub ...</string>
+   </property>
+  </action>
+  <action name="actionFrom_SourceForge_com">
+   <property name="text">
+    <string>From sourceforge.net</string>
+   </property>
+  </action>
+  <action name="actionAbout_BlackDevelop">
+   <property name="icon">
+    <iconset theme="help-about">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>About BlackDevelop</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
+   </property>
+  </action>
+  <action name="actionQbout_Qt5">
+   <property name="text">
+    <string>Qbout Qt5</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutQtRole</enum>
+   </property>
+  </action>
+  <action name="actionDirectories">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Files</string>
+   </property>
+  </action>
+  <action name="actionGitHub">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../../../../../../.designer/icons/x-github.png</normaloff>../../../../../../../../.designer/icons/x-github.png</iconset>
+   </property>
+   <property name="text">
+    <string>Push to GitHub</string>
+   </property>
+   <property name="iconText">
+    <string>Upload to GitHub</string>
+   </property>
+   <property name="statusTip">
+    <string>Upload to GitHub</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionSourceforge">
+   <property name="text">
+    <string>Sourceforge</string>
+   </property>
+  </action>
+  <action name="actionLog">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Log</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="icon">
+    <iconset theme="list-add">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Import ...</string>
+   </property>
+   <property name="iconText">
+    <string>Import file</string>
+   </property>
+   <property name="statusTip">
+    <string>Import file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionBash_script">
+   <property name="icon">
+    <iconset theme="utilities-terminal">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Bash script</string>
+   </property>
+  </action>
+  <action name="actionText_document">
+   <property name="icon">
+    <iconset theme="text-x-generic">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Text document</string>
+   </property>
+  </action>
+  <action name="actionPackage">
+   <property name="icon">
+    <iconset theme="package-x-generic">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Package</string>
+   </property>
+   <property name="statusTip">
+    <string>New package</string>
+   </property>
+  </action>
+  <action name="actionModule">
+   <property name="icon">
+    <iconset theme="text-x-generic">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Module</string>
+   </property>
+   <property name="statusTip">
+    <string>New module</string>
+   </property>
+  </action>
+  <action name="actionAll_files">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>All files</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionModules">
+   <property name="icon">
+    <iconset theme="x-package-repository">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Modules ...</string>
+   </property>
+  </action>
+  <action name="actionMainWindow">
+   <property name="text">
+    <string>MainWindow</string>
+   </property>
+  </action>
+  <action name="actionDialog">
+   <property name="text">
+    <string>Dialog</string>
+   </property>
+   <property name="statusTip">
+    <string>Add dialog window</string>
+   </property>
+  </action>
+  <action name="actionWizard">
+   <property name="text">
+    <string>Wizard</string>
+   </property>
+  </action>
+  <action name="actionBuild">
+   <property name="icon">
+    <iconset theme="system-run">
+     <normaloff>../../../../../../../../.designer/backup</normaloff>../../../../../../../../.designer/backup</iconset>
+   </property>
+   <property name="text">
+    <string>Build</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionSource_directory">
+   <property name="text">
+    <string>Source directory</string>
+   </property>
+  </action>
+  <action name="actionRename">
+   <property name="text">
+    <string>Rename</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Move to trash</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actionErrors">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Errors</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionLog</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>dockWidget_3</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>353</x>
+     <y>628</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDirectories</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>dockWidget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>137</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionErrors</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>dockWidget_2</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>838</x>
+     <y>628</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

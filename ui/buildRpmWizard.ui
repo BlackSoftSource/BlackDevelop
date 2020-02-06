@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Wizard</class>
+ <widget class="QWizard" name="Wizard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>717</width>
+    <height>547</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Wizard</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="list-add">
+    <normaloff>.</normaloff>.</iconset>
+  </property>
+  <property name="wizardStyle">
+   <enum>QWizard::ModernStyle</enum>
+  </property>
+  <widget class="QWizardPage" name="wizardPage">
+   <property name="title">
+    <string>RPM package creation</string>
+   </property>
+   <property name="subTitle">
+    <string>Metadata</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Package name:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="4">
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Release:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="4">
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="text">
+       <string>1%{?dist}</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Summary:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1" colspan="4">
+     <widget class="QLineEdit" name="lineEdit_3"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Website:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="4">
+     <widget class="QLineEdit" name="lineEdit_4"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>License:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="lineEdit_5">
+      <property name="text">
+       <string>GPL-3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>140</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="3">
+     <spacer name="horizontalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>140</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="4">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>140</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>PC architecture:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1" colspan="4">
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>x86_64</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>i386</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>noarch</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="5">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Description</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QPlainTextEdit" name="plainTextEdit"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage_2">
+   <property name="title">
+    <string>RPM package creation</string>
+   </property>
+   <property name="subTitle">
+    <string>License</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="text">
+       <string>Will save in /usr/share/doc/&lt;Your program&gt;/copyright</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPlainTextEdit" name="plainTextEdit_2">
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="plainText">
+       <string>&lt;one line to give the program's name and a brief idea of what it does.&gt;
+    Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage_3">
+   <property name="title">
+    <string>RPM package creation</string>
+   </property>
+   <property name="subTitle">
+    <string>Scripts</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_6">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Pre-Installation</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <widget class="QPlainTextEdit" name="plainTextEdit_3">
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Post-Installation</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QPlainTextEdit" name="plainTextEdit_4">
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="plainText">
+           <string>appstreamcli refresh-cache --force
+update-mime-database /usr/share/mime</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Pre-Uninstall</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_8">
+        <item row="0" column="0">
+         <widget class="QPlainTextEdit" name="plainTextEdit_5">
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>Post-Uninstallation</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <widget class="QPlainTextEdit" name="plainTextEdit_6">
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="plainText">
+           <string>appstreamcli refresh-cache --force 
+update-mime-database /usr/share/mime</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage2">
+   <property name="title">
+    <string>RPM package creation</string>
+   </property>
+   <property name="subTitle">
+    <string>Dependencies</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_11">
+    <item row="1" column="1">
+     <spacer name="horizontalSpacer_6">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>350</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="2">
+     <widget class="QCommandLinkButton" name="commandLinkButton">
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QCommandLinkButton" name="commandLinkButton_2">
+      <property name="text">
+       <string>Remove</string>
+      </property>
+      <property name="icon">
+       <iconset theme="list-remove">
+        <normaloff>.</normaloff>.</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="3">
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="columnCount">
+       <number>2</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Package</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Version (blank - newest)</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage_4">
+   <property name="title">
+    <string>RPM package creation</string>
+   </property>
+   <property name="subTitle">
+    <string>New mime type</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_18">
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="title">
+       <string>Create new mime type</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_17">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>Name:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_8">
+         <property name="text">
+          <string>application/</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>Comment:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_9"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Pattern:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="lineEdit_10">
+         <property name="placeholderText">
+          <string>*.txt</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_15">
+         <property name="text">
+          <string>Exec command:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="lineEdit_11">
+         <property name="placeholderText">
+          <string>myprogram --open %f</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>58</width>
+           <height>248</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage_5">
+   <property name="title">
+    <string>RPM package creation</string>
+   </property>
+   <property name="subTitle">
+    <string>Appstream</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_12">
+    <item row="0" column="0">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>268</width>
+         <height>565</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_16">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_12">
+          <property name="text">
+           <string>Categories:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="comboBox_2">
+          <item>
+           <property name="text">
+            <string>AudioVideo</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Audio</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Video</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Development</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Education</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Game</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Graphics</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Network</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Office</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Science</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Settings</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>System</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Utility</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="3">
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="title">
+           <string>Keywords</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_13">
+           <item row="0" column="0" colspan="2">
+            <widget class="QLineEdit" name="lineEdit_12"/>
+           </item>
+           <item row="1" column="0" rowspan="3">
+            <widget class="QListWidget" name="listWidget"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>Add</string>
+             </property>
+             <property name="icon">
+              <iconset theme="list-add">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="pushButton_2">
+             <property name="text">
+              <string>Delete</string>
+             </property>
+             <property name="icon">
+              <iconset theme="list-remove">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="3">
+         <widget class="QGroupBox" name="groupBox_4">
+          <property name="title">
+           <string>Screenshots (URL or path)</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_14">
+           <item row="0" column="0" colspan="2">
+            <widget class="QLineEdit" name="lineEdit_13"/>
+           </item>
+           <item row="1" column="0" rowspan="3">
+            <widget class="QListWidget" name="listWidget_2"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="pushButton_3">
+             <property name="text">
+              <string>Add</string>
+             </property>
+             <property name="icon">
+              <iconset theme="list-add">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="pushButton_4">
+             <property name="text">
+              <string>Delete</string>
+             </property>
+             <property name="icon">
+              <iconset theme="list-remove">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="3">
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="title">
+           <string>Mimetypes</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_15">
+           <item row="0" column="0" colspan="2">
+            <widget class="QLineEdit" name="lineEdit_14"/>
+           </item>
+           <item row="1" column="0" rowspan="3">
+            <widget class="QListWidget" name="listWidget_3"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="pushButton_5">
+             <property name="text">
+              <string>Add</string>
+             </property>
+             <property name="icon">
+              <iconset theme="list-add">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="pushButton_6">
+             <property name="text">
+              <string>Delete</string>
+             </property>
+             <property name="icon">
+              <iconset theme="list-remove">
+               <normaloff>.</normaloff>.</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>416</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage_6">
+   <property name="title">
+    <string>RPM package creation</string>
+   </property>
+   <property name="subTitle">
+    <string>Last options</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_19">
+    <item row="0" column="0">
+     <widget class="QCheckBox" name="checkBox_2">
+      <property name="text">
+       <string>Open-Source program</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QCheckBox" name="checkBox_3">
+      <property name="text">
+       <string>Run program by terminal</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="tristate">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QCheckBox" name="checkBox_4">
+      <property name="text">
+       <string>Delete tree after building</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <property name="tristate">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QCheckBox" name="checkBox_5">
+      <property name="text">
+       <string>Save RPM building settings for this project</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QCheckBox" name="checkBox_6">
+      <property name="text">
+       <string>Install after build</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QCheckBox" name="checkBox_7">
+      <property name="text">
+       <string>Build appstream</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QCheckBox" name="checkBox_8">
+      <property name="text">
+       <string>Build menu launcher</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>239</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

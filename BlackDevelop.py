@@ -69,6 +69,7 @@ class selectProjectDialog(QDialog):
             Settings.loginGitHub = False
             Settings.GitHubRepo = False
             Settings.passwordGitHub = False
+            Settings.pwd = os.getcwd()
             if conf.has_option('Info', "GitHubRepo"):
                 Settings.GitHubRepo = conf['Info']['GitHubRepo']
             
@@ -570,7 +571,9 @@ class CommitGitHub(QDialog):
                 brush.setStyle(Qt.SolidPattern)
                 item.setBackground(brush)
                 self.ui.listWidget.addItem(item)    
-
+        
+        os.chdir(Settings.pwd)
+        
     def pathFix(self):
         Settings.newPaths = []
         for root, dirs, files in os.walk(Settings.projectPath):
@@ -832,8 +835,6 @@ class ImportFromGitHubThread(QThread):
         with open(p.join(tmp, ".BlackDevelop.conf"), 'a') as f:
             f.truncate(0)
             conf.write(f)
-        os.chdir(p.join(tmp, 'usr/src'))
-
         print("BlackDev: Cloning from: '" +repo+"' ...")
         os.system("git clone '"+repo+"' > /dev/null")
         print("BlackDev: Importing project ...")
@@ -841,7 +842,7 @@ class ImportFromGitHubThread(QThread):
         for path in glob.glob(p.join(Settings.workspace, p.basename(self.tmp), 'usr/src/*')):
             shutil.move(path, p.join(Settings.workspace, p.basename(self.tmp), 'usr/src', p.basename(path).replace(" ", "").lower()))
         print("BlackDev: '"+appname+"' imported ...")
-
+        
 
 class BlackDevelopWindow(QMainWindow):
     def __init__(self):
@@ -892,8 +893,6 @@ class BlackDevelopWindow(QMainWindow):
         
         self.errorsTable = ErrorsTable()
         self.ui.gridLayout_4.addWidget(self.errorsTable, 0, 0, 1, 1)
-        
-        os.chdir(Settings.projectSrc)
         
         self.loadLastOpenedFiles()
         
@@ -1071,14 +1070,14 @@ class BlackDevelopWindow(QMainWindow):
                     if file[-3:] == '.py' and not filedata == '':
                         with open(p.join(root, file), 'w') as f:
                             f.write(filedata)
-                        
-                            
+        
+        os.chdir(Settings.pwd)              
     def runProject(self):
         self.saveAll()
         self.pathFix()     
         os.chdir(Settings.projectPath)
         self.logWidget.start_process(sys.executable, [p.join(Settings.projectPath, Settings.projectExec)])
-        
+        os.chdir(Settings.pwd)
     def loadFile(self, file):
         self.editor = PyCodeEdit(server_script=server.__file__)
         self.tab = QWidget()
@@ -1198,8 +1197,8 @@ class BlackDevelopWindow(QMainWindow):
             if not i[-3:] == ".py":
                 i = i + ".py"
             i = p.join(Settings.projectPath, "usr/src", Settings.projectPkg, "ui", i)
-            shutil.copyfile(p.join("/usr/src/blackdevelop-projects/Python3/window_examples", "Wizard/Wizard.py"), i)
-            shutil.copyfile(p.join("/usr/src/blackdevelop-projects/Python3/window_examples", "Wizard/Wizard.ui"), i.replace(".py", ".ui"))
+            shutil.copyfile(p.join("./blackdevelop-projects/Python3/window_examples", "Wizard/Wizard.py"), i)
+            shutil.copyfile(p.join("./blackdevelop-projects/Python3/window_examples", "Wizard/Wizard.ui"), i.replace(".py", ".ui"))
 
     def addUiDialog(self):
         i, okPressed = QInputDialog.getText(self, "Create new program window (" + Settings.projectLanguage + ")","Window (dialog) name:")
@@ -1207,8 +1206,8 @@ class BlackDevelopWindow(QMainWindow):
             if not i[-3:] == ".py":
                 i = i + ".py"
             i = p.join(Settings.projectPath, "usr/src", Settings.projectPkg, "ui", i)
-            shutil.copyfile(p.join("/usr/src/blackdevelop-projects/Python3/window_examples", "Dialog/Dialog.py"), i)
-            shutil.copyfile(p.join("/usr/src/blackdevelop-projects/Python3/window_examples", "Dialog/Dialog.ui"), i.replace(".py", ".ui"))
+            shutil.copyfile(p.join("./blackdevelop-projects/Python3/window_examples", "Dialog/Dialog.py"), i)
+            shutil.copyfile(p.join("./blackdevelop-projects/Python3/window_examples", "Dialog/Dialog.ui"), i.replace(".py", ".ui"))
     
     def addUiMainWindow(self):
         i, okPressed = QInputDialog.getText(self, "Create new program window (" + Settings.projectLanguage + ")","Window (main) name:")
@@ -1216,8 +1215,8 @@ class BlackDevelopWindow(QMainWindow):
             if not i[-3:] == ".py":
                 i = i + ".py"
             i = p.join(Settings.projectPath, "usr/src", Settings.projectPkg, "ui", i)
-            shutil.copyfile(p.join("/usr/src/blackdevelop-projects/Python3/window_examples", "MainWindow/MainWindow.py"), i)
-            shutil.copyfile(p.join("/usr/src/blackdevelop-projects/Python3/window_examples", "MainWindow/MainWindow.ui"), i.replace(".py", ".ui"))
+            shutil.copyfile(p.join("./blackdevelop-projects/Python3/window_examples", "MainWindow/MainWindow.py"), i)
+            shutil.copyfile(p.join("./blackdevelop-projects/Python3/window_examples", "MainWindow/MainWindow.ui"), i.replace(".py", ".ui"))
     def getPath(self):
         index = self.ui.treeView.currentIndex()
         model = self.ui.treeView.model()
@@ -1578,7 +1577,7 @@ cp -r ./* %buildroot/
         for dir in glob.glob("rpmbuild/BUILD/*"):
             shutil.move(dir, Settings.projectPath)                  
         self.procProgress.emit(100)
-        
+        os.chdir(Settings.pwd)
     def fixPath(self):
         os.chdir(Settings.projectPath)
         for root, dirs, files in os.walk(Settings.projectPath):
@@ -1624,7 +1623,7 @@ cp -r ./* %buildroot/
                         with open(p.join(root, file), 'w') as f:
                             f.write(filedata)
     
-
+        os.chdir(Settings.pwd)
 class importedFromGit(object):
     def __init__(self):
         super(importedFromGit, self).__init__()    
@@ -1646,7 +1645,7 @@ def tardir(path, tar_name):
                 tar_handle.add(p.join(root, file), arcname)
 
     shutil.move(p.basename(tar_name), tar_name)
-    
+    os.chdir(Settings.pwd)
     
 def randomString(stringLength=10):
     """Generate a random string of fixed length """
